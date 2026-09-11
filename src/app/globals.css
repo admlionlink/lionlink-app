@@ -1,0 +1,70 @@
+/*
+  source("../") limita a varredura do Tailwind a src/.
+  Sem isso ele escaneia a pasta .agents/skills e gera CSS para classes que só
+  aparecem na documentação das skills, inflando o bundle.
+*/
+@import "tailwindcss" source("../");
+
+/*
+  Tema único off-white. O site não acompanha o prefers-color-scheme do sistema:
+  a versão clara é a única, para o visitante ver sempre a mesma coisa.
+
+  Regra do dourado: sobre fundo claro o #f5d00d tem contraste de ~1,5:1 e é
+  ilegível como texto. Ele só entra como preenchimento de botão (com texto
+  #020202 por cima), filete, ou ícone sobre superfície escura.
+*/
+
+:root {
+  color-scheme: light;
+
+  --background: #f7f6f3;
+  --surface: #ffffff;
+  --surface-alt: #f1efea;
+  --foreground: #020202;
+  --muted: #5f5c56;
+  --border: #e3e0d9;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+
+  --color-ink-950: #020202;
+  --color-ink-900: #181818;
+  --color-gold-300: #ffde59;
+  --color-gold-500: #f5d00d;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
