@@ -8,6 +8,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: site.url, lastModified, priority: 1 },
     { url: `${site.url}/presenca-digital`, lastModified, priority: 0.8 },
     { url: `${site.url}/automacao`, lastModified, priority: 0.8 },
-    { url: `${site.url}/resultados`, lastModified, priority: 0.8 },
   ];
 }

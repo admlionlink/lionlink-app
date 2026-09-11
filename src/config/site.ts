@@ -19,7 +19,6 @@ export const cta = {
 export const nav = [
   { href: "/presenca-digital", label: "Presença digital" },
   { href: "/automacao", label: "Automação" },
-  { href: "/resultados", label: "Resultados" },
   { href: "/#sobre", label: "Sobre" },
 ] as const;
 
